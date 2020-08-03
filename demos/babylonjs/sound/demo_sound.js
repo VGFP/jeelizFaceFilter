@@ -33,16 +33,12 @@ function detect_callback(isDetected){
     }
   }
 
-var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
-
 
   // build the 3D. called once when Jeeliz Face Filter is OK:
 function init_babylonScene(spec){
   // INIT THE BABYLON.JS context:
   engine = new BABYLON.Engine(spec.GL);
-  
-  //engine = createDefaultEngine();
-  //console.log(engine.audioEngine);
+
   // CREATE THE SCENE:
   scene = new BABYLON.Scene(engine);
 
@@ -63,8 +59,6 @@ function init_babylonScene(spec){
   var screenDiagonalInches = Math.sqrt(Math.pow((window.screen.width / $el.offsetWidth), 2) + Math.pow((window.screen.height / $el.offsetHeight), 2))/ 2.54;
   console.log("Screen Diagonal in in: "+ screenDiagonalInches);
   
- 
-  //console.log(engine.audioEngine.canUseWebAudio);
   //ADD VIRTUAL SPEAKERS
 
   //Screen center height in meters
