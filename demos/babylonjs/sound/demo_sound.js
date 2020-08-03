@@ -29,3 +29,23 @@ function detect_callback(isDetected){
       console.log('INFO in detect_callback(): LOST');
     }
   }
+
+  // build the 3D. called once when Jeeliz Face Filter is OK:
+function init_babylonScene(spec){
+  // INIT THE BABYLON.JS context:
+  BABYLONENGINE = new BABYLON.Engine(spec.GL);
+
+  // CREATE THE SCENE:
+  BABYLONSCENE = new BABYLON.Scene(BABYLONENGINE);
+
+  //ADD 
+
+  // ADD A LIGHT:
+  const pointLight = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(0, 1, 0), BABYLONSCENE);
+  pointLight.intensity = 0.5;
+
+  // init the video texture:
+  BABYLONVIDEOTEXTURE = new BABYLON.RawTexture(new Uint8Array([255,0,0,0]),1,1,spec.GL.RGBA,BABYLONSCENE);
+  BABYLONVIDEOTEXTURE._texture._webGLTexture = spec.videoTexture;
+  
+}
